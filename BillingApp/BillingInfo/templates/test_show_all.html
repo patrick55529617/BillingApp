@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>TEST</title>
+</head>
+
+<script type="text/JavaScript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<div>
+<div style="display: flex; justify-content: center;"><h1>所有花費</div>
+<body style="display: flex; justify-content: center;">
+   <table  style="border:3px #cccccc solid;" cellpadding="10" border='1'>
+        <tr>
+            <th>項目</th>
+            <th>花費</th>
+            <th>時間</th>
+            </tr>
+    {% for billing_info in billing_list %}
+        <tr>
+            <td> {{ billing_info.bill_content }} </td>
+            <td> <p>{{ billing_info.cost }}</p></td>
+            <td> <p>{{ billing_info.bill_release_date }}</p></td>
+        </tr>
+    {% endfor %}
+    </table>
+
+
+</body>
+
+</html>
+<div>
