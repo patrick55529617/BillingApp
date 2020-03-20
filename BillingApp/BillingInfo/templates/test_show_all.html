@@ -17,9 +17,9 @@
             </tr>
     {% for billing_info in billing_list %}
         <tr>
-            <td> {{ billing_info.bill_content }} </td>
+            <td> {{ billing_info.content }} </td>
             <td> <p>{{ billing_info.cost }}</p></td>
-            <td> <p>{{ billing_info.bill_release_date }}</p></td>
+            <td> <p>{{ billing_info.event_time }}</p></td>
         </tr>
     {% endfor %}
     </table>

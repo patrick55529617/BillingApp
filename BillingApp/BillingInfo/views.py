@@ -9,15 +9,17 @@ class AddBillingPage(View):
         return render(request, 'add_billing.html')
 
     def post(self, request):
-        bill_content = request.POST['bill_content']
+        content = request.POST['content']
         cost = request.POST['cost']
-        bill_release_date = datetime.datetime.now()
+        event_time = datetime.datetime.now()
 
-        bill_info = BillInfo(bill_content = bill_content, cost = cost, bill_release_date = bill_release_date)
+        bill_info = BillInfo(content = content,
+                             cost = cost, 
+                             event_time = event_time)
         bill_info.save()
 
         return HttpResponseRedirect("/test_show_all/")
 
 def test_show_all(request):
-    billing_list = BillInfo.objects.all().order_by('-bill_release_date')
+    billing_list = BillInfo.objects.all().order_by('-event_time')
     return render(request, 'test_show_all.html', {'billing_list':billing_list})
