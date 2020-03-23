@@ -10,11 +10,11 @@ class AddBillingPage(View):
 
     def post(self, request):
         content = request.POST['content']
-        cost = request.POST['cost']
+        amount = request.POST['amount']
         event_time = datetime.datetime.now()
 
         bill_info = BillInfo(content = content,
-                             cost = cost, 
+                             amount = amount, 
                              event_time = event_time)
         bill_info.save()
 
