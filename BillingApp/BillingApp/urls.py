@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from BillingInfo import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('add_billing/', views.AddBillingPage.as_view(), name = 'add_billing'),
+    path('test_show_all/', views.test_show_all, name = 'test_show_all'),
 ]

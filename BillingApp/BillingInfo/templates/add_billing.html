@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>新增一筆帳</title>
+</head>
+
+<script type="text/JavaScript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<div>
+<div style="display: flex; justify-content: center;"><h1>Input your billing info</div>
+<body style="display: flex; justify-content: center;">
+    <form action='.' method='post'> {% csrf_token %}
+        <br><h3 style="display: flex; justify-content: center;">Bill Content:<input type='text' name='content'/></br>
+        <br><h3 style="display: flex; justify-content: center;">Amount:<input type='text' name='amount'/></br>
+        <br><input style="display: flex; justify-content: center;" type='submit' value='submit'></br>
+    </form>
+
+</body>
+
+</html>
+<div>
