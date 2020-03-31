@@ -6,20 +6,31 @@
 
 <script type="text/JavaScript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+
 <div>
+
 <div style="display: flex; justify-content: center;"><h1>所有花費</div>
+
 <body style="display: flex; justify-content: center;">
+   <center><input type="button" value="新增一筆帳" onclick="location.href='/add_billing/'" 
+        style="width:120px;height:40px;border:2px orange double;background-color:orange;"></center>
+    <br> </br>
    <table  style="border:3px #cccccc solid;" cellpadding="10" border='1'>
         <tr>
             <th>項目</th>
             <th>花費</th>
             <th>時間</th>
+            <th>刪除</th>
             </tr>
     {% for billing_info in billing_list %}
         <tr>
             <td> {{ billing_info.content }} </td>
-            <td> <p>{{ billing_info.amount }}</p></td>
-            <td> <p>{{ billing_info.event_time }}</p></td>
+            <td> {{ billing_info.amount }}</td>
+            <td> {{ billing_info.event_time }}</td>
+            <td>
+                <form action="./del/{{ billing_info.id }}/" method="POST"> {% csrf_token %}
+                    <button type="submit">刪除</button>
+            </td>
         </tr>
     {% endfor %}
     </table>
