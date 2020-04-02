@@ -23,9 +23,11 @@ class AddBillingPage(LoginRequiredMixin, View):
 
         return HttpResponseRedirect("/test_show_all/")
 
-def DeleteBilling(request, id):
-    deleted_bill = BillInfo.objects.get(id=id)
-    deleted_bill.delete()
+def DeleteBilling(request):
+    check_box_list = request.POST.getlist("check_box_list")
+    for deleted_index in check_box_list:
+        deleted_bill = BillInfo.objects.get(id=deleted_index)
+        deleted_bill.delete()
     return HttpResponseRedirect("/test_show_all/")
 
 @login_required
