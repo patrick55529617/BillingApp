@@ -5,6 +5,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from datetime import datetime
+from django.urls import reverse
 
 class AddBillingPage(LoginRequiredMixin, View):
     def get(self, request):
@@ -21,14 +22,14 @@ class AddBillingPage(LoginRequiredMixin, View):
                              owner=request.user)
         bill_info.save()
 
-        return HttpResponseRedirect("/test_show_all/")
+        return HttpResponseRedirect(reverse('test_show_all'))
 
 def DeleteBilling(request):
     check_box_list = request.POST.getlist("check_box_list")
     for deleted_index in check_box_list:
         deleted_bill = BillInfo.objects.get(id=deleted_index)
         deleted_bill.delete()
-    return HttpResponseRedirect("/test_show_all/")
+    return HttpResponseRedirect(reverse('test_show_all'))
 
 @login_required
 def QueryOneDayRecord(request):
