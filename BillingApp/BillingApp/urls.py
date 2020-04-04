@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('add_billing/', views.AddBillingPage.as_view(), name='add_billing'),
     path('test_show_all/', views.test_show_all, name='test_show_all'),
-    path('test_show_all/del/', views.DeleteBilling, name='delete_billing'),
+    path('query_one/', views.QueryOneDayRecord, name='query_one'),
+    path('del/', views.DeleteBilling, name='delete_billing'),
     path('user/', include('user.urls'), name='user'),
 ]
