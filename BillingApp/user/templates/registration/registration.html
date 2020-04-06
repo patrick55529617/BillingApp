@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+	<body>
+		<form method="post" action="{% url 'user:registration' %}">
+		{% csrf_token %}
+    {{ form.as_p }}
+		<input type="submit" value="註冊">
+		<input type="hidden" name="next" value="{{ next }}">
+		</form>
+	</body>
+</html>
