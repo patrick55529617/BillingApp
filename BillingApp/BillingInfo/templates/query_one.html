@@ -1,5 +1,18 @@
-{% extends 'base.html' %}
-{% block content %}
+{% load static %}
+
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>查詢單筆</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/JavaScript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
 
 <div>
     <div style="display: flex; justify-content: center;"><h1>{{ date }} 的花費</div>
@@ -40,5 +53,3 @@
     </body>
 </html>
 <div>
-
-{% endblock %}
