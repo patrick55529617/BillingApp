@@ -7,6 +7,14 @@ body {font-family:微軟正黑體!important;}
     color: white; 
     font-size: 16px;
 }
+.date_submit_button {
+    width: 110px;
+    height:40px;
+    background-color:#3695FA;
+    border-radius: 5px;
+    color: white; 
+    font-size: 16px;
+}
 table { 
 	border:1px solid #D3D3D3; 
 	font-size:16px; 
@@ -23,3 +31,4 @@ td {
     border:2px solid #D3D3D3;
     padding:10px;
 }
+

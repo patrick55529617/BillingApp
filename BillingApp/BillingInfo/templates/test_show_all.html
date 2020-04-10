@@ -7,14 +7,14 @@
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/billing_page.css' %}">
 
     <!-- Bootstrap core JavaScript -->
     <script type="text/JavaScript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script type="text/javascript" onclick="document.getElementById('p').style.display=''">
+    <script type="text/javascript">
     $(document).ready(function(){
-        $("button").click(function(){
+        $(".date_submit_button").click(function(){
             if ($("#p1").css("display")=="none") {
                 $("#p1").show(300);
             } else {
@@ -35,12 +35,12 @@
 <body style="display: flex; justify-content: center;">
     <center>
        <input type="button" class='button' value="新增一筆帳" onclick="location.href='/add_billing/'" >
-       <button type="button" class='button'" >查詢記錄</button>
+       <button type="button" class='date_submit_button'" >查詢記錄</button>
        <input type="button" class='button' value="登出" onclick="location.href='/user/logout/'" >
     </center>
     <br>
     <center>
-        <form action="/query_one/" method="POST"> {% csrf_token %}
+        <form action="{% url 'test_show_all' %}" method="GET"> {% csrf_token %}
         <div style="display:none" id="p1">請輸入日期：</p><p>Date: <input type="text" id="datepicker" name="one_date"><input type="submit" value="查詢"></p>
         </form></div>
     </center>
@@ -51,7 +51,7 @@
             <th>時間</th>
             <th>刪除</th>
             </tr>
-    <form action="/del/" method="POST"> {% csrf_token %}
+    <form action="{% url 'test_show_all' %}" method="POST"> {% csrf_token %}
     {% for billing_info in billing_list %}
         <tr>
             <td> {{ billing_info.content }} </td>

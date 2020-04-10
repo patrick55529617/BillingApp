@@ -31,17 +31,12 @@ def DeleteBilling(request):
         deleted_bill.delete()
     return HttpResponseRedirect(reverse('test_show_all'))
 
-@login_required
-def QueryOneDayRecord(request):
-    one_date = datetime.strptime(request.POST['one_date'], "%m/%d/%Y").date()
-    one_date_billing = BillInfo.objects.filter(
-        event_time__date=one_date, owner=request.user)
-    return render(request, 'query_one.html', {
-        'billing_list': one_date_billing, 'date':one_date})
-
-@login_required
-def test_show_all(request):
-    billing_list = BillInfo.objects.filter(
-        owner=request.user).order_by('-event_time')
-    return render(request, 'test_show_all.html', {
-        'billing_list': billing_list})
+class BillingListPage(LoginRequiredMixin, View):
+    def get(self, request):
+        billing_list = BillInfo.objects.filter(
+            owner=request.user).order_by('-event_time')
+        if request.GET.get('date'):
+            date = datetime.strptime(date, "%m/%d/%Y").date()
+            billing_list = billing_list.filter(date=date)
+        return render(request, 'test_show_all.html', {
+            'billing_list': billing_list})
