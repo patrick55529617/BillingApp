@@ -21,6 +21,8 @@ from BillingInfo import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('add_billing/', views.AddBillingPage.as_view(), name='add_billing'),
+    path('billing/<billing_id>',
+         views.BillingDetailPage.as_view(), name='billing_detail'),
     path('test_show_all/', views.test_show_all, name='test_show_all'),
     path('user/', include('user.urls'), name='user'),
 ]

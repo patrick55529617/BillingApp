@@ -17,7 +17,7 @@
             </tr>
     {% for billing_info in billing_list %}
         <tr>
-            <td> {{ billing_info.content }} </td>
+          <td> <a href="{% url 'billing_detail' billing_info.id %}">{{ billing_info.content }}</a> </td>
             <td> <p>{{ billing_info.amount }}</p></td>
             <td> <p>{{ billing_info.event_time }}</p></td>
         </tr>

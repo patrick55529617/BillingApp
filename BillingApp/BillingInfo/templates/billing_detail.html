@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>新增一筆帳</title>
+</head>
+
+<script type="text/JavaScript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<div>
+<div style="display: flex; justify-content: center;"><h1>Input your billing info</div>
+<body style="display: flex; justify-content: center;">
+  <form action='{% url 'billing_detail' billing_id %}' method='post'>
+        {% csrf_token %}
+        {{ form.as_p }}
+		    <input type="submit" value="修改">
+    </form>
+
+</body>
+
+</html>
+<div>
